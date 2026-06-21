@@ -1,0 +1,786 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme="auto">
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/avatar.png">
+  <link rel="icon" href="/img/avatar.png">
+  
+    <link rel="canonical" href="https://wfcrush.github.io/mingli/">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="rgba(247,245,240,0.86)">
+  <meta name="author" content="晚风">
+  <meta name="keywords" content="计算机专业,编程学习,技术笔记,Hexo,Fluid,前端开发,后端开发,GitHub Pages">
+  
+    <meta name="description" content="#mingli-app{max-width:620px;margin:0 auto;font-family:-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,sans-serif} .mc{background:#fff;border-radius:14px;padding:18px 22px;margin:12px 0;box-shadow:0 2px 1">
+<meta property="og:type" content="website">
+<meta property="og:title" content="紫微斗数命盘解读">
+<meta property="og:url" content="https://wfcrush.github.io/mingli/">
+<meta property="og:site_name" content="晚风の技术笔记">
+<meta property="og:description" content="#mingli-app{max-width:620px;margin:0 auto;font-family:-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,sans-serif} .mc{background:#fff;border-radius:14px;padding:18px 22px;margin:12px 0;box-shadow:0 2px 1">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-06-19T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-06-21T16:23:50.448Z">
+<meta property="article:author" content="晚风">
+<meta property="article:tag" content="计算机专业,编程学习,技术笔记,Hexo,Fluid,前端开发,后端开发,GitHub Pages">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:creator" content="@WFCrush">
+<meta name="twitter:site" content="WFCrush">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+     <link rel="preconnect" href="https://fonts.googleapis.com"> <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap"> <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap"> <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap"></noscript> 
+  
+  <title>紫微斗数命盘解读 - 晚风の技术笔记</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+
+
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css">
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css">
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/blog-custom.css">
+<link rel="stylesheet" href="/css/post-reading-plus.css">
+<link rel="stylesheet" href="/css/public-skill-chat.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"wfcrush.github.io","root":"/","version":"1.9.9","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#165DFF","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"right","headingSelector":"h2,h3,h4,h5,h6","collapseDepth":2},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://open-kounter.mintimate.cn","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script src="/js/utils.js"></script>
+  <script src="/js/color-schema.js"></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"><meta name="twitter:title" content="紫微斗数命盘解读 - 晚风の技术笔记">
+<meta name="twitter:description" content="#mingli-app{max-width:620px;margin:0 auto;font-family:-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,sans-serif}...">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+<meta property="og:image" content="https://wfcrush.github.io/img/home-banner.png">
+<meta property="og:image:secure_url" content="https://wfcrush.github.io/img/home-banner.png">
+<meta property="og:image:alt" content="紫微斗数命盘解读 - 晚风の技术笔记">
+<meta property="og:image:width" content="2730">
+<meta property="og:image:height" content="1535">
+<meta name="twitter:image" content="https://wfcrush.github.io/img/home-banner.png">
+<meta name="twitter:image:alt" content="紫微斗数命盘解读 - 晚风の技术笔记">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://wfcrush.github.io/#person","name":"晚风","url":"https://wfcrush.github.io/"},{"@type":"WebSite","@id":"https://wfcrush.github.io/#website","url":"https://wfcrush.github.io/","name":"晚风の技术笔记","description":"人无法同时获得青春和对青春的感受","inLanguage":"zh-CN","publisher":{"@id":"https://wfcrush.github.io/#person"}},{"@type":"WebPage","@id":"https://wfcrush.github.io/mingli/#webpage","url":"https://wfcrush.github.io/mingli/","name":"紫微斗数命盘解读 - 晚风の技术笔记","description":"#mingli-app{max-width:620px;margin:0 auto;font-family:-apple-system,BlinkMacSystemFont,\"Segoe UI\",sans-serif}...","isPartOf":{"@id":"https://wfcrush.github.io/#website"},"inLanguage":"zh-CN","primaryImageOfPage":{"@type":"ImageObject","url":"https://wfcrush.github.io/img/home-banner.png"}}]}</script>
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 60vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>晚风の技术笔记</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content (desktop) -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>文章</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/projects/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>项目</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>更多</span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/tags/" target="_self">
+                    
+                    <span>标签</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/mingli/" target="_self">
+                    
+                    <span>命盘解读</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/skill-chat/" target="_self">
+                    
+                    <span>对话分析</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="http://127.0.0.1:5050/" target="_blank" rel="external nofollow noopener noreferrer">
+                    
+                    <span>博客后台</span>
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile grid menu overlay -->
+<div id="mobile-grid-menu" class="d-lg-none">
+  <div class="mobile-grid-menu-inner">
+    <div class="container">
+      <div class="row">
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-home-fill"></i>
+                  <span>首页</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/archives/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-archive-fill"></i>
+                  <span>文章</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/categories/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-category-fill"></i>
+                  <span>分类</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/projects/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-tags-fill"></i>
+                  <span>项目</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/about/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-user-fill"></i>
+                  <span>关于</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            
+            <div class="col-12 mobile-grid-group-header">
+              <i class="iconfont icon-tags-fill"></i>
+              <span>更多</span>
+            </div>
+            
+              
+              
+              
+              <div class="col-4 mobile-grid-cell">
+                <a href="/tags/" target="_self">
+                  <div class="mobile-grid-item">
+                    <i class="iconfont icon-link-fill"></i>
+                    <span>标签</span>
+                  </div>
+                </a>
+              </div>
+            
+              
+              
+              
+              <div class="col-4 mobile-grid-cell">
+                <a href="/mingli/" target="_self">
+                  <div class="mobile-grid-item">
+                    <i class="iconfont icon-link-fill"></i>
+                    <span>命盘解读</span>
+                  </div>
+                </a>
+              </div>
+            
+              
+              
+              
+              <div class="col-4 mobile-grid-cell">
+                <a href="/skill-chat/" target="_self">
+                  <div class="mobile-grid-item">
+                    <i class="iconfont icon-link-fill"></i>
+                    <span>对话分析</span>
+                  </div>
+                </a>
+              </div>
+            
+              
+              
+              
+              <div class="col-4 mobile-grid-cell">
+                <a href="http://127.0.0.1:5050/" target="_blank" rel="external nofollow noopener noreferrer">
+                  <div class="mobile-grid-item">
+                    <i class="iconfont icon-link-fill"></i>
+                    <span>博客后台</span>
+                  </div>
+                </a>
+              </div>
+            
+          
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-search-btn">
+            <a href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-search"></i>
+                <span>搜索</span>
+              </div>
+            </a>
+          </div>
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-color-toggle-btn" data-label-light="开灯" data-label-dark="关灯">
+            <a href="javascript:;" aria-label="Color Toggle">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-dark" id="mobile-color-toggle-icon"></i>
+                <span id="mobile-color-toggle-label">关灯</span>
+              </div>
+            </a>
+          </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+
+<div id="banner" class="banner" parallax="true" style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="紫微斗数命盘解读"></span>
+          
+        </div>
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+
+
+</div>
+
+  </header>
+
+  <main>
+    
+      <div class="container nopadding-x-md">
+        <div id="board">
+          
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-10 m-auto">
+                
+
+<article class="page-content">
+  <style>
+#mingli-app{max-width:620px;margin:0 auto;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+.mc{background:#fff;border-radius:14px;padding:18px 22px;margin:12px 0;box-shadow:0 2px 14px rgba(0,0,0,.07);border-left:5px solid #ddd;transition:box-shadow .2s}
+.mc:hover{box-shadow:0 4px 20px rgba(0,0,0,.12)}
+.mc-t{font-size:1.05em;font-weight:700;margin-bottom:10px}
+.mc-b{color:#444;line-height:1.9;font-size:.94em}
+.mc-b p{margin:0 0 8px}
+.mc-b ul,.mc-b ol{padding-left:20px;margin:6px 0}
+.mc-b li{margin-bottom:4px}
+.mc-b strong{color:#222}
+.mc-b blockquote{border-left:3px solid #e0e0e0;margin:10px 0;padding:6px 14px;color:#666;background:#fafafa;border-radius:0 6px 6px 0}
+.mc-intro{color:#777;font-size:.9em;text-align:center;padding:4px 0 10px}
+.mc-intro p{margin:4px 0}
+#result-header{display:none;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;border-radius:14px;padding:20px 24px;margin-bottom:4px;text-align:center}
+#result-header h3{margin:0 0 4px;font-size:1.1em;font-weight:600;opacity:.9}
+#result-header p{margin:0;font-size:.9em;opacity:.75}
+#thinking-bar{display:none;text-align:center;padding:32px 0;color:#aaa;font-size:.9em}
+.dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:#bbb;margin:0 3px;animation:pulse 1.2s infinite}
+.dot:nth-child(2){animation-delay:.4s}.dot:nth-child(3){animation-delay:.8s}
+@keyframes pulse{0%,80%,100%{transform:scale(.6);opacity:.4}40%{transform:scale(1);opacity:1}}
+@media(max-width:480px){
+  #mingli-form .grid-2{grid-template-columns:1fr!important}
+  #mingli-app{padding:0 4px}
+  .mc{padding:14px 16px}
+}
+</style>
+
+<div id="mingli-app">
+
+<form id="mingli-form" style="display:flex;flex-direction:column;gap:12px">
+  <div class="grid-2" style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+    <label>出生年<input type="number" id="year" placeholder="如 1995" min="1900" max="2010" required style="width:100%;margin-top:4px"></label>
+    <label>出生月<input type="number" id="month" placeholder="1-12" min="1" max="12" required style="width:100%;margin-top:4px"></label>
+    <label>出生日<input type="number" id="day" placeholder="1-31" min="1" max="31" required style="width:100%;margin-top:4px"></label>
+    <label>出生时辰
+      <select id="hour" required style="width:100%;margin-top:4px">
+        <option value>选择时辰</option>
+        <option>子时(23-1点)</option><option>丑时(1-3点)</option>
+        <option>寅时(3-5点)</option><option>卯时(5-7点)</option>
+        <option>辰时(7-9点)</option><option>巳时(9-11点)</option>
+        <option>午时(11-13点)</option><option>未时(13-15点)</option>
+        <option>申时(15-17点)</option><option>酉时(17-19点)</option>
+        <option>戌时(19-21点)</option><option>亥时(21-23点)</option>
+      </select>
+    </label>
+  </div>
+  <label>性别
+    <select id="gender" required style="margin-left:8px">
+      <option value>选择</option>
+      <option>男</option><option>女</option>
+    </select>
+  </label>
+  <button type="submit" id="submit-btn" style="padding:11px;cursor:pointer;border-radius:8px;border:none;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;font-size:1em;font-weight:600">开始解读</button>
+</form>
+
+<div id="thinking-bar">
+  <div style="margin-bottom:8px">AI 正在推演星盘</div>
+  <div><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+</div>
+
+<div id="result-header">
+  <h3>命盘解读报告</h3>
+  <p id="result-subtitle"></p>
+</div>
+<div id="result-content" style="margin-top:4px"></div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script>
+const WORKER_URL = 'https://mingli.zyn6915060.workers.dev';
+
+const COLORS = {
+  '性格':'#9b59b6','命盘':'#9b59b6','先天':'#9b59b6',
+  '事业':'#3498db','职业':'#3498db','工作':'#3498db',
+  '财运':'#e67e22','财':'#e67e22','钱':'#e67e22',
+  '感情':'#e74c3c','爱情':'#e74c3c','婚姻':'#e74c3c',
+  '运势':'#27ae60','流年':'#27ae60','大限':'#27ae60','近期':'#27ae60','近年':'#27ae60',
+};
+function getColor(t){for(const k in COLORS){if(t.includes(k))return COLORS[k];}return'#7f8c8d';}
+
+function render(md){
+  const parts = md.split(/(?=^## )/m);
+  let html = '';
+  for(const part of parts){
+    if(!part.trim()) continue;
+    if(part.startsWith('## ')){
+      const nl = part.indexOf('\n');
+      const rawTitle = nl>0 ? part.slice(3,nl) : part.slice(3);
+      const body = nl>0 ? part.slice(nl+1).trim() : '';
+      const c = getColor(rawTitle);
+      const bodyHtml = body ? '<div class="mc-b">' + marked.parse(body) + '</div>' : '';
+      html += '<div class="mc" style="border-left-color:' + c + '">' +
+        '<div class="mc-t" style="color:' + c + '">' + rawTitle + '</div>' +
+        bodyHtml +
+      '</div>';
+    } else {
+      const parsed = marked.parse(part.trim());
+      if(parsed.trim()) html += '<div class="mc-intro">' + parsed + '</div>';
+    }
+  }
+  document.getElementById('result-content').innerHTML = html;
+}
+
+document.getElementById('mingli-form').addEventListener('submit', async(e)=>{
+  e.preventDefault();
+  const btn = document.getElementById('submit-btn');
+  const thinking = document.getElementById('thinking-bar');
+  const header = document.getElementById('result-header');
+  const subtitle = document.getElementById('result-subtitle');
+  const content = document.getElementById('result-content');
+
+  const year=document.getElementById('year').value;
+  const month=document.getElementById('month').value;
+  const day=document.getElementById('day').value;
+  const hour=document.getElementById('hour').value;
+  const gender=document.getElementById('gender').value;
+
+  btn.disabled=true; btn.textContent='解读中...';
+  content.innerHTML=''; header.style.display='none';
+  thinking.style.display='block';
+
+  let full='';
+  try{
+    const resp = await fetch(WORKER_URL,{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({year:year,month:month,day:day,hour:hour,gender:gender}),
+    });
+    const ct=resp.headers.get('content-type')||'';
+    if(ct.includes('event-stream')){
+      const reader=resp.body.getReader(),dec=new TextDecoder();
+      let buf='',hasContent=false;
+      while(true){
+        const res=await reader.read();
+        if(res.done) break;
+        buf+=dec.decode(res.value,{stream:true});
+        const lines=buf.split('\n'); buf=lines.pop();
+        for(const line of lines){
+          if(!line.startsWith('data:')) continue;
+          const raw=line.slice(5).trim();
+          if(raw==='[DONE]') break;
+          try{
+            const d=JSON.parse(raw);
+            const delta = d && d.choices && d.choices[0] && d.choices[0].delta;
+            if(delta && delta.content){
+              if(!hasContent){
+                hasContent=true;
+                thinking.style.display='none';
+                header.style.display='block';
+                subtitle.textContent=year+'年'+month+'月'+day+'日 '+hour+' · '+gender+'命';
+              }
+              full+=delta.content;
+              render(full);
+            }
+          }catch(err){}
+        }
+      }
+      if(!full) content.textContent='未收到解读内容，请重试';
+    } else {
+      const data=await resp.json();
+      full=data.content||'';
+      if(full){ header.style.display='block'; render(full); }
+      else content.textContent=data.error||'解读失败';
+    }
+  }catch(err){
+    content.textContent='错误：'+(err.message||String(err));
+  }
+  thinking.style.display='none';
+  btn.disabled=false; btn.textContent='重新解读';
+});
+</script>
+
+
+  
+
+</article>
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="external nofollow noopener noreferrer"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css">
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"></script>
+<script src="/js/events.js"></script>
+<script src="/js/plugins.js"></script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js"></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script src="/js/img-lazyload.js"></script>
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+<script src="/js/contact-widget.js"></script>
+<script src="/js/site-enhance.js"></script>
+<script src="/js/post-reading-plus.js"></script>
+<script src="/js/public-skill-chat-config.js"></script>
+<script src="/js/public-skill-chat.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script src="/js/boot.js"></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

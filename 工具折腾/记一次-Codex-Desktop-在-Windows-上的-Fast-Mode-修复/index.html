@@ -1,0 +1,1232 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme="auto">
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/avatar.png">
+  <link rel="icon" href="/img/avatar.png">
+  
+    <link rel="canonical" href="https://wfcrush.github.io/%E5%B7%A5%E5%85%B7%E6%8A%98%E8%85%BE/%E8%AE%B0%E4%B8%80%E6%AC%A1-Codex-Desktop-%E5%9C%A8-Windows-%E4%B8%8A%E7%9A%84-Fast-Mode-%E4%BF%AE%E5%A4%8D/">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="rgba(247,245,240,0.86)">
+  <meta name="author" content="晚风">
+  <meta name="keywords" content="计算机专业,编程学习,技术笔记,Hexo,Fluid,前端开发,后端开发,GitHub Pages">
+  
+    <meta name="description" content="今天折腾的是 Codex Desktop 在 Windows 上的一个老大难问题：Fast Mode、插件市场、Chrome 插件、Computer Use 看起来都像是“装了”，但重启之后又不稳定。最烦的地方不是它直接报错，而是状态会来回变，像是刚修好，下一次打开又回到原点。 我参考了一篇排障文章，里面提到一个关键点：不要直接依赖 WindowsApps 里的 Codex 安装目录。这个目录受">
+<meta property="og:type" content="article">
+<meta property="og:title" content="记一次 Codex Desktop 在 Windows 上的 Fast Mode 修复">
+<meta property="og:url" content="https://wfcrush.github.io/%E5%B7%A5%E5%85%B7%E6%8A%98%E8%85%BE/%E8%AE%B0%E4%B8%80%E6%AC%A1-Codex-Desktop-%E5%9C%A8-Windows-%E4%B8%8A%E7%9A%84-Fast-Mode-%E4%BF%AE%E5%A4%8D/">
+<meta property="og:site_name" content="晚风の技术笔记">
+<meta property="og:description" content="今天折腾的是 Codex Desktop 在 Windows 上的一个老大难问题：Fast Mode、插件市场、Chrome 插件、Computer Use 看起来都像是“装了”，但重启之后又不稳定。最烦的地方不是它直接报错，而是状态会来回变，像是刚修好，下一次打开又回到原点。 我参考了一篇排障文章，里面提到一个关键点：不要直接依赖 WindowsApps 里的 Codex 安装目录。这个目录受">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-06-09T03:05:00.000Z">
+<meta property="article:modified_time" content="2026-06-08T18:45:27.000Z">
+<meta property="article:author" content="晚风">
+<meta property="article:tag" content="Codex Desktop">
+<meta property="article:tag" content="Windows">
+<meta property="article:tag" content="Computer Use">
+<meta property="article:tag" content="插件市场">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:creator" content="@WFCrush">
+<meta name="twitter:site" content="WFCrush">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+     <link rel="preconnect" href="https://fonts.googleapis.com"> <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap"> <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap"> <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap"></noscript> 
+  
+  <title>记一次 Codex Desktop 在 Windows 上的 Fast Mode 修复 - 晚风の技术笔记</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+
+
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2.7.0/hint.min.css">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css">
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css">
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/blog-custom.css">
+<link rel="stylesheet" href="/css/post-reading-plus.css">
+<link rel="stylesheet" href="/css/public-skill-chat.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"wfcrush.github.io","root":"/","version":"1.9.9","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#165DFF","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"right","headingSelector":"h2,h3,h4,h5,h6","collapseDepth":2},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://open-kounter.mintimate.cn","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script src="/js/utils.js"></script>
+  <script src="/js/color-schema.js"></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"><meta name="twitter:title" content="记一次 Codex Desktop 在 Windows 上的 Fast Mode 修复 - 晚风の技术笔记">
+<meta name="twitter:description" content="今天折腾的是 Codex Desktop 在 Windows 上的一个老大难问题：Fast Mode、插件市场、Chrome 插件、Computer Use 看起来都像是“装了”，但重启之后又不稳定。最烦的地方不是它直接报错，而是状态会来回变，像是刚修好，下一次打开又回到原点...">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+<meta property="og:image" content="https://wfcrush.github.io/opt-images/avatar-optimized.png">
+<meta property="og:image:secure_url" content="https://wfcrush.github.io/opt-images/avatar-optimized.png">
+<meta property="og:image:alt" content="ASHUWEI 头像">
+<meta property="og:image:width" content="2730">
+<meta property="og:image:height" content="1535">
+<meta name="twitter:image" content="https://wfcrush.github.io/opt-images/avatar-optimized.png">
+<meta name="twitter:image:alt" content="ASHUWEI 头像">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://wfcrush.github.io/#person","name":"晚风","url":"https://wfcrush.github.io/"},{"@type":"WebSite","@id":"https://wfcrush.github.io/#website","url":"https://wfcrush.github.io/","name":"晚风の技术笔记","description":"人无法同时获得青春和对青春的感受","inLanguage":"zh-CN","publisher":{"@id":"https://wfcrush.github.io/#person"}},{"@type":"WebPage","@id":"https://wfcrush.github.io/%E5%B7%A5%E5%85%B7%E6%8A%98%E8%85%BE/%E8%AE%B0%E4%B8%80%E6%AC%A1-Codex-Desktop-%E5%9C%A8-Windows-%E4%B8%8A%E7%9A%84-Fast-Mode-%E4%BF%AE%E5%A4%8D/#webpage","url":"https://wfcrush.github.io/%E5%B7%A5%E5%85%B7%E6%8A%98%E8%85%BE/%E8%AE%B0%E4%B8%80%E6%AC%A1-Codex-Desktop-%E5%9C%A8-Windows-%E4%B8%8A%E7%9A%84-Fast-Mode-%E4%BF%AE%E5%A4%8D/","name":"记一次 Codex Desktop 在 Windows 上的 Fast Mode 修复 - 晚风の技术笔记","description":"今天折腾的是 Codex Desktop 在 Windows 上的一个老大难问题：Fast Mode、插件市场、Chrome 插件、Computer Use 看起来都像是“装了”，但重启之后又不稳定。最烦的地方不是它直接报错，而是状态会来回变，像是刚修好，下一次打开又回到原点...","isPartOf":{"@id":"https://wfcrush.github.io/#website"},"inLanguage":"zh-CN","primaryImageOfPage":{"@type":"ImageObject","url":"https://wfcrush.github.io/opt-images/avatar-optimized.png"}},{"@type":"BlogPosting","@id":"https://wfcrush.github.io/%E5%B7%A5%E5%85%B7%E6%8A%98%E8%85%BE/%E8%AE%B0%E4%B8%80%E6%AC%A1-Codex-Desktop-%E5%9C%A8-Windows-%E4%B8%8A%E7%9A%84-Fast-Mode-%E4%BF%AE%E5%A4%8D/#article","mainEntityOfPage":{"@id":"https://wfcrush.github.io/%E5%B7%A5%E5%85%B7%E6%8A%98%E8%85%BE/%E8%AE%B0%E4%B8%80%E6%AC%A1-Codex-Desktop-%E5%9C%A8-Windows-%E4%B8%8A%E7%9A%84-Fast-Mode-%E4%BF%AE%E5%A4%8D/#webpage"},"isPartOf":{"@id":"https://wfcrush.github.io/#website"},"headline":"记一次 Codex Desktop 在 Windows 上的 Fast Mode 修复","name":"记一次 Codex Desktop 在 Windows 上的 Fast Mode 修复","description":"今天折腾的是 Codex Desktop 在 Windows 上的一个老大难问题：Fast Mode、插件市场、Chrome 插件、Computer Use 看起来都像是“装了”，但重启之后又不稳定。最烦的地方不是它直接报错，而是状态会来回变，像是刚修好，下一次打开又回到原点...","url":"https://wfcrush.github.io/%E5%B7%A5%E5%85%B7%E6%8A%98%E8%85%BE/%E8%AE%B0%E4%B8%80%E6%AC%A1-Codex-Desktop-%E5%9C%A8-Windows-%E4%B8%8A%E7%9A%84-Fast-Mode-%E4%BF%AE%E5%A4%8D/","inLanguage":"zh-CN","author":{"@id":"https://wfcrush.github.io/#person"},"publisher":{"@id":"https://wfcrush.github.io/#person"},"datePublished":"2026-06-09T03:05:00.000Z","dateModified":"2026-06-08T18:45:27.000Z","image":["https://wfcrush.github.io/opt-images/avatar-optimized.png"],"keywords":"Codex Desktop, Windows, Computer Use, 插件市场","articleSection":["工具折腾"]}]}</script>
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 60vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>晚风の技术笔记</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content (desktop) -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>文章</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/projects/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>项目</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>更多</span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/tags/" target="_self">
+                    
+                    <span>标签</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/mingli/" target="_self">
+                    
+                    <span>命盘解读</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/skill-chat/" target="_self">
+                    
+                    <span>对话分析</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="http://127.0.0.1:5050/" target="_blank" rel="external nofollow noopener noreferrer">
+                    
+                    <span>博客后台</span>
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile grid menu overlay -->
+<div id="mobile-grid-menu" class="d-lg-none">
+  <div class="mobile-grid-menu-inner">
+    <div class="container">
+      <div class="row">
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-home-fill"></i>
+                  <span>首页</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/archives/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-archive-fill"></i>
+                  <span>文章</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/categories/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-category-fill"></i>
+                  <span>分类</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/projects/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-tags-fill"></i>
+                  <span>项目</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/about/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-user-fill"></i>
+                  <span>关于</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            
+            <div class="col-12 mobile-grid-group-header">
+              <i class="iconfont icon-tags-fill"></i>
+              <span>更多</span>
+            </div>
+            
+              
+              
+              
+              <div class="col-4 mobile-grid-cell">
+                <a href="/tags/" target="_self">
+                  <div class="mobile-grid-item">
+                    <i class="iconfont icon-link-fill"></i>
+                    <span>标签</span>
+                  </div>
+                </a>
+              </div>
+            
+              
+              
+              
+              <div class="col-4 mobile-grid-cell">
+                <a href="/mingli/" target="_self">
+                  <div class="mobile-grid-item">
+                    <i class="iconfont icon-link-fill"></i>
+                    <span>命盘解读</span>
+                  </div>
+                </a>
+              </div>
+            
+              
+              
+              
+              <div class="col-4 mobile-grid-cell">
+                <a href="/skill-chat/" target="_self">
+                  <div class="mobile-grid-item">
+                    <i class="iconfont icon-link-fill"></i>
+                    <span>对话分析</span>
+                  </div>
+                </a>
+              </div>
+            
+              
+              
+              
+              <div class="col-4 mobile-grid-cell">
+                <a href="http://127.0.0.1:5050/" target="_blank" rel="external nofollow noopener noreferrer">
+                  <div class="mobile-grid-item">
+                    <i class="iconfont icon-link-fill"></i>
+                    <span>博客后台</span>
+                  </div>
+                </a>
+              </div>
+            
+          
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-search-btn">
+            <a href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-search"></i>
+                <span>搜索</span>
+              </div>
+            </a>
+          </div>
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-color-toggle-btn" data-label-light="开灯" data-label-dark="关灯">
+            <a href="javascript:;" aria-label="Color Toggle">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-dark" id="mobile-color-toggle-icon"></i>
+                <span id="mobile-color-toggle-label">关灯</span>
+              </div>
+            </a>
+          </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+
+<div id="banner" class="banner" parallax="true" style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="记一次 Codex Desktop 在 Windows 上的 Fast Mode 修复"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        晚风
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-06-09 11:05" pubdate>
+          2026-06-09 11:05
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2.7k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          12 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">记一次 Codex Desktop 在 Windows 上的 Fast Mode 修复</h1>
+            
+              <p id="updated-time" class="note note-info" style>
+                
+                  
+                    本文最后更新于 2026-06-09 02:45
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <p>今天折腾的是 Codex Desktop 在 Windows 上的一个老大难问题：Fast Mode、插件市场、Chrome 插件、Computer Use 看起来都像是“装了”，但重启之后又不稳定。最烦的地方不是它直接报错，而是状态会来回变，像是刚修好，下一次打开又回到原点。</p>
+<p>我参考了一篇排障文章，里面提到一个关键点：<strong>不要直接依赖 WindowsApps 里的 Codex 安装目录</strong>。这个目录受 Windows 应用包保护，很多时候从里面读插件、执行文件或者注册插件源，都会碰到奇怪的权限问题，比如 <code>os error 6000</code>。所以这次修复的核心思路，不是硬改系统目录，而是把官方 bundled 插件源搬到用户可写的位置，再让 Codex 从这个稳定位置加载。</p>
+<h2 id="一开始的问题"><a href="#一开始的问题" class="headerlink" title="一开始的问题"></a>一开始的问题</h2><p>表面上看，是 Codex Desktop 里几个能力不好用：</p>
+<ul>
+<li>Fast Mode 不稳定，Windows sandbox 配置会被改回去；</li>
+<li>插件市场里 <code>openai-bundled</code> 没有稳定注册；</li>
+<li><code>chrome</code>、<code>browser</code>、<code>computer-use</code> 这些插件缓存不完整；</li>
+<li>重启 Codex Desktop 后，刚修好的配置又可能被覆盖。</li>
+</ul>
+<p>这几个问题其实是一条链子上的。插件源不稳定，插件市场就看不到；插件市场看不到，Computer Use 就加载不上；而配置文件又会被桌面端重写，所以只手动改一次 <code>config.toml</code> 没用。</p>
+<pre><code class=" mermaid">flowchart LR
+  A[WindowsApps 受保护路径] --&gt; B[openai-bundled 源不稳定]
+  B --&gt; C[插件市场缺项]
+  C --&gt; D[Chrome / Browser / Computer Use 不可用]
+  D --&gt; E[Fast Mode 体验断掉]
+  E --&gt; F[重启后问题复现]
+</code></pre>
+
+<h2 id="真正有效的修法"><a href="#真正有效的修法" class="headerlink" title="真正有效的修法"></a>真正有效的修法</h2><p>最后采用的是一个比较稳的方案：<strong>用户目录镜像 + 配置补齐 + 登录自检</strong>。</p>
+<p>先把 <code>openai-bundled</code> 插件源固定到一个普通用户目录：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">C:\Users\31756\Documents\Codex\codex-openai-bundled<br></code></pre></td></tr></table></figure>
+
+<p>然后在 Codex 的配置文件里恢复 marketplace 和插件启用项：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">C:\Users\31756\.codex\config.toml<br></code></pre></td></tr></table></figure>
+
+<p>关键段落大概长这样：</p>
+<figure class="highlight toml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs toml"><span class="hljs-section">[marketplaces.openai-bundled]</span><br><span class="hljs-attr">source_type</span> = <span class="hljs-string">&quot;local&quot;</span><br><span class="hljs-attr">source</span> = <span class="hljs-string">&#x27;\\?\C:\Users\31756\Documents\Codex\codex-openai-bundled&#x27;</span><br><br><span class="hljs-section">[plugins.&quot;chrome@openai-bundled&quot;]</span><br><span class="hljs-attr">enabled</span> = <span class="hljs-literal">true</span><br><br><span class="hljs-section">[plugins.&quot;computer-use@openai-bundled&quot;]</span><br><span class="hljs-attr">enabled</span> = <span class="hljs-literal">true</span><br></code></pre></td></tr></table></figure>
+
+<p>同时确认插件缓存里这几个 manifest 都存在：</p>
+<table>
+<thead>
+<tr>
+<th>插件</th>
+<th>作用</th>
+<th>修复状态</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>chrome</code></td>
+<td>调用用户已有 Chrome 状态</td>
+<td>已补齐</td>
+</tr>
+<tr>
+<td><code>browser</code></td>
+<td>Codex 内置浏览器控制</td>
+<td>已补齐</td>
+</tr>
+<tr>
+<td><code>computer-use</code></td>
+<td>Windows 桌面控制能力</td>
+<td>已补齐</td>
+</tr>
+<tr>
+<td><code>sites</code></td>
+<td>网站构建相关能力</td>
+<td>已补齐</td>
+</tr>
+<tr>
+<td><code>latex</code></td>
+<td>研究&#x2F;排版辅助能力</td>
+<td>已补齐</td>
+</tr>
+</tbody></table>
+<p>这里还有个小坑：之前配置里残留过一行 <code>notify = ...computer-use...</code>，看起来像是为了让 Computer Use 接收回调，但实际会污染当前配置。我这次把它清掉了，只保留 marketplace 和 plugin 本身需要的内容。</p>
+<h2 id="为什么要做自检脚本"><a href="#为什么要做自检脚本" class="headerlink" title="为什么要做自检脚本"></a>为什么要做自检脚本</h2><p>如果只是手动改配置，短期看起来会好，但 Codex Desktop 后面可能还会重写 <code>config.toml</code>。所以这次我没有停在“一次性修复”，而是写了一个自愈脚本：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">C:\Users\31756\Documents\Codex\codex-openai-bundled-repair\repair-codex-windows-fast-patch.ps1<br></code></pre></td></tr></table></figure>
+
+<p>脚本做的事很简单：</p>
+<ol>
+<li>检查 <code>openai-bundled</code> 镜像是否还在；</li>
+<li>检查五个插件缓存是否完整；</li>
+<li>检查 <code>config.toml</code> 里 marketplace 和插件段落是否唯一；</li>
+<li>如果发现被覆盖，就自动补回去；</li>
+<li>额外确认 <code>windows.sandbox = &quot;elevated&quot;</code>，保证 Fast Mode 基础配置在。</li>
+</ol>
+<p>本来我想用 Windows 计划任务在登录后启动它，但这台机器当前权限不允许注册任务，返回了 <code>Access is denied</code>。所以最后换成了更朴素的方案：在启动文件夹里放一个 <code>.cmd</code>。</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">C:\Users\31756\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\CodexWindowsFastPatch.cmd<br></code></pre></td></tr></table></figure>
+
+<p>这个文件会在用户登录后启动补丁脚本，每 30 秒检查一次。它不改模型配置、不碰 token、不动 MCP，只管理 <code>openai-bundled</code> 这一小块。</p>
+<pre><code class=" mermaid">flowchart TD
+  A[用户登录 Windows] --&gt; B[Startup 运行 CodexWindowsFastPatch.cmd]
+  B --&gt; C[启动 PowerShell 自检脚本]
+  C --&gt; D&#123;配置是否健康&#125;
+  D -- 是 --&gt; E[保持安静]
+  D -- 否 --&gt; F[补齐 marketplace / 插件缓存 / sandbox]
+  F --&gt; E
+</code></pre>
+
+<h2 id="最后怎么验证"><a href="#最后怎么验证" class="headerlink" title="最后怎么验证"></a>最后怎么验证</h2><p>修完以后我没有只看“感觉能用了”，而是按几个可量化的点验了一遍：</p>
+<ul>
+<li><code>notify</code> 行数量：<code>0</code>；</li>
+<li><code>[marketplaces.openai-bundled]</code>：只有 <code>1</code> 份；</li>
+<li><code>chrome / computer-use / browser / sites / latex</code>：每个插件启用段都只有 <code>1</code> 份；</li>
+<li><code>windows.sandbox = &quot;elevated&quot;</code>：存在；</li>
+<li>五个插件的 <code>plugin.json</code>：都能在缓存目录里找到；</li>
+<li>启动文件夹里的 <code>CodexWindowsFastPatch.cmd</code>：存在。</li>
+</ul>
+<pre><code class=" mermaid">flowchart LR
+  A[检查配置] --&gt; B[检查插件缓存]
+  B --&gt; C[清理旧 notify]
+  C --&gt; D[安装登录自检]
+  D --&gt; E[重启后继续保持]
+</code></pre>
+
+<p>我比较喜欢这次修复的地方是，它没有去硬碰 WindowsApps，也没有靠玄学重装。问题的根子是“插件源和配置持久化不稳”，那就把插件源搬到可控目录，再写一个幂等的小脚本盯住它。</p>
+<p>以后如果 Codex Desktop 更新，可能还会带来新的插件版本，但这个思路应该还能继续用：<strong>系统目录只当来源，不当长期依赖；用户目录做稳定镜像；配置修复要可重复执行。</strong> 这比每次出问题都手动复制、手动改 TOML，要安心很多。</p>
+
+                
+              </div>
+            
+            <hr>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%B7%A5%E5%85%B7%E6%8A%98%E8%85%BE/" class="category-chain-item">工具折腾</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Codex-Desktop/" class="print-no-link">#Codex Desktop</a>
+      
+        <a href="/tags/Windows/" class="print-no-link">#Windows</a>
+      
+        <a href="/tags/Computer-Use/" class="print-no-link">#Computer Use</a>
+      
+        <a href="/tags/%E6%8F%92%E4%BB%B6%E5%B8%82%E5%9C%BA/" class="print-no-link">#插件市场</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>记一次 Codex Desktop 在 Windows 上的 Fast Mode 修复</div>
+      <div>https://wfcrush.github.io/工具折腾/记一次-Codex-Desktop-在-Windows-上的-Fast-Mode-修复/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>晚风</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2026年6月9日</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>更新于</div>
+          <div>2026年6月9日</div>
+        </div>
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noopener noreferrer">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noopener noreferrer">
+                  <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                    <i class="iconfont icon-cc-nc"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noopener noreferrer">
+                  <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                    <i class="iconfont icon-cc-sa"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%9F%BA%E4%BA%8E%E5%8A%A8%E5%8A%9B%E5%AD%A6%E7%BA%A6%E6%9D%9F%E4%B8%8E%E6%BB%91%E7%AA%97%E5%9B%9E%E5%BD%92%E7%9A%84%E7%A3%81%E6%B5%AE%E5%88%97%E8%BD%A6%E6%82%AC%E6%B5%AE%E7%94%B5%E7%A3%81%E9%93%81%E6%95%85%E9%9A%9C%E6%A3%80%E6%B5%8B%E4%B8%8E%E8%AF%86%E5%88%AB/" title="基于动力学约束与滑窗回归的磁浮列车悬浮电磁铁故障检测与识别">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">基于动力学约束与滑窗回归的磁浮列车悬浮电磁铁故障检测与识别</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E7%94%A8-Codex-%E8%BE%85%E5%8A%A9%E5%AE%8C%E6%88%90-iPhone-%E6%A6%82%E5%BF%B5%E6%9C%BA%E5%BB%BA%E6%A8%A1%E7%9A%84%E4%B8%80%E7%82%B9%E5%BF%83%E5%BE%97/" title="用 Codex 辅助完成 iPhone 概念机建模的一点心得">
+                        <span class="hidden-mobile">用 Codex 辅助完成 iPhone 概念机建模的一点心得</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+    <div id="giscus" class="giscus"></div>
+    <script type="text/javascript">
+      Fluid.utils.loadComments('#giscus', function() {
+        var options = {"repo":"WFCrush/boke","repo-id":"R_kgDOSnWhfA","category":"General","category-id":"DIC_kwDOSnWhfM4C91BD","theme-light":"light","theme-dark":"dark","mapping":"pathname","reactions-enabled":1,"emit-metadata":0,"input-position":"top","lang":"zh-CN"};
+        var attributes = {};
+        for (let option in options) {
+          if (!option.startsWith('theme-')) {
+            var key = option.startsWith('data-') ? option : 'data-' + option;
+            attributes[key] = options[option];
+          }
+        }
+        var light = 'light';
+        var dark = 'dark';
+        window.GiscusThemeLight = light;
+        window.GiscusThemeDark = dark;
+        attributes['data-theme'] = document.documentElement.getAttribute('data-user-color-scheme') === 'dark' ? dark : light;
+        for (let attribute in attributes) {
+          var value = attributes[attribute];
+          if (value === undefined || value === null || value === '') {
+            delete attributes[attribute];
+          }
+        }
+        var s = document.createElement('script');
+        s.setAttribute('src', 'https://giscus.app/client.js');
+        s.setAttribute('crossorigin', 'anonymous');
+        for (let attribute in attributes) {
+          s.setAttribute(attribute, attributes[attribute]);
+        }
+        var ss = document.getElementsByTagName('script');
+        var e = ss.length > 0 ? ss[ss.length - 1] : document.head || document.documentElement;
+        e.parentNode.insertBefore(s, e.nextSibling);
+      });
+    </script>
+    <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+  <!-- Custom -->
+  <div class="col-lg-7 mx-auto nopadding-x-md">
+    <div class="container custom post-custom mx-auto">
+      <section class="boke-author-card" aria-label="作者简介"><picture data-optimized="true"><source type="image/webp" srcset="/opt-images/avatar-800w.webp 800w, /opt-images/avatar-1280w.webp 1280w, /opt-images/avatar-1920w.webp 1920w" sizes="(max-width: 1279px) 800px, (min-width: 1280px) and (max-width: 1919px) 1280px, (min-width: 1920px) 1920px, 1920px"><img src="/opt-images/avatar-optimized.png" srcset="/img/loading.gif" lazyload alt="ASHUWEI 头像" width="2730" height="1535" loading="lazy" decoding="async"></picture><div><h2>关于 ASHUWEI</h2><p>计算机专业学习者，持续记录编程学习、项目实践和技术成长中的真实踩坑经验。</p><p><a href="https://github.com/WFCrush" target="_blank" rel="noopener">GitHub</a><span aria-hidden="true"> · </span><a href="/about/">关于我</a></p></div></section><section class="boke-subscribe-card" aria-label="邮件订阅"><h2>订阅更新</h2><p>想收到新文章提醒，可以把 Mailchimp 表单地址填到 source/js/site-enhance.js 的 subscribeAction。</p><form class="boke-subscribe-form" action="#" method="post" target="_blank"><input type="email" name="EMAIL" placeholder="你的邮箱" aria-label="邮箱地址" required><button type="submit">订阅</button></form></section>
+    </div>
+  </div>
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="external nofollow noopener noreferrer"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css">
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"></script>
+<script src="/js/events.js"></script>
+<script src="/js/plugins.js"></script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js"></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script src="/js/img-lazyload.js"></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/tocbot@4.20.1/dist/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    function isExpandAllEnabled() {
+      return CONFIG.toc && CONFIG.toc.expand_all === true;
+    }
+    function expandAllToc() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .tocbot-is-collapsed').removeClass('tocbot-is-collapsed');
+    }
+    function updateTocToggle($li, $childList) {
+      var $toggle = $li.children('.toc-toggle');
+      if ($toggle.length === 0) { return; }
+      var collapsed = $childList.hasClass('tocbot-is-collapsed');
+      $toggle
+        .toggleClass('toc-toggle-collapsed', collapsed)
+        .toggleClass('toc-toggle-expanded', !collapsed);
+    }
+    function bindTocToggle() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .toc-list-item').each(function() {
+        var $li = jQuery(this);
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) {
+          if ($li.children('.toc-toggle').length === 0) {
+            $li.prepend('<span class="toc-toggle toc-toggle-placeholder" aria-hidden="true">›</span>');
+          }
+          return;
+        }
+
+        if ($li.children('.toc-toggle').length === 0) {
+          $li.prepend('<span class="toc-toggle toc-toggle-expanded" aria-hidden="true">›</span>');
+        }
+        updateTocToggle($li, $childList);
+      });
+      jQuery('#toc-body').off('click.tocToggle').on('click.tocToggle', '.toc-toggle', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var $li = jQuery(this).parent('.toc-list-item');
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) { return; }
+        $childList.toggleClass('tocbot-is-collapsed');
+        updateTocToggle($li, $childList);
+      });
+      if (!window.__tocToggleObserver) {
+        window.__tocToggleObserver = new MutationObserver(function(mutations) {
+          mutations.forEach(function(mutation) {
+            if (mutation.type !== 'attributes' || mutation.attributeName !== 'class') { return; }
+            var $list = jQuery(mutation.target);
+            var $li = $list.parent('.toc-list-item');
+            if ($li.length === 0) { return; }
+            updateTocToggle($li, $list);
+          });
+        });
+        jQuery('#toc-body ol').each(function() {
+          window.__tocToggleObserver.observe(this, { attributes: true });
+        });
+      }
+    }
+    var tocConfig = Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc);
+    if (isExpandAllEnabled()) {
+      tocConfig.collapseDepth = 6;
+    }
+    window.tocbot.init(tocConfig);
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+    expandAllToc();
+    bindTocToggle();
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+        expandAllToc();
+        bindTocToggle();
+      }
+    });
+  });
+</script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/anchor-js@5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+
+  <script src="/js/local-search.js"></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+<script src="/js/contact-widget.js"></script>
+<script src="/js/site-enhance.js"></script>
+<script src="/js/post-reading-plus.js"></script>
+<script src="/js/public-skill-chat-config.js"></script>
+<script src="/js/public-skill-chat.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script src="/js/boot.js"></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
