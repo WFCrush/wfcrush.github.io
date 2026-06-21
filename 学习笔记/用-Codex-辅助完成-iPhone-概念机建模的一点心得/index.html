@@ -1,0 +1,1167 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme="auto">
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/avatar.png">
+  <link rel="icon" href="/img/avatar.png">
+  
+    <link rel="canonical" href="https://wfcrush.github.io/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E7%94%A8-Codex-%E8%BE%85%E5%8A%A9%E5%AE%8C%E6%88%90-iPhone-%E6%A6%82%E5%BF%B5%E6%9C%BA%E5%BB%BA%E6%A8%A1%E7%9A%84%E4%B8%80%E7%82%B9%E5%BF%83%E5%BE%97/">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="rgba(247,245,240,0.86)">
+  <meta name="author" content="晚风">
+  <meta name="keywords" content="计算机专业,编程学习,技术笔记,Hexo,Fluid,前端开发,后端开发,GitHub Pages">
+  
+    <meta name="description" content="这次用 Codex 辅助完成 iPhone 17 Pro Max 概念机的建模，对我来说不是简单地“让 AI 帮我做一个模型”那么轻松。更准确地说，它像是一次把自己的建模思路重新梳理清楚的过程：我需要先知道自己想要什么，再把需求拆成能被理解、能被执行、能被检查的小步骤。最后模型能做出来，靠的不只是 Codex 的提示，更靠我自己不断判断、修改和验证。  一开始最重要的是把目标说清楚刚开始建模的时候">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用 Codex 辅助完成 iPhone 概念机建模的一点心得">
+<meta property="og:url" content="https://wfcrush.github.io/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E7%94%A8-Codex-%E8%BE%85%E5%8A%A9%E5%AE%8C%E6%88%90-iPhone-%E6%A6%82%E5%BF%B5%E6%9C%BA%E5%BB%BA%E6%A8%A1%E7%9A%84%E4%B8%80%E7%82%B9%E5%BF%83%E5%BE%97/">
+<meta property="og:site_name" content="晚风の技术笔记">
+<meta property="og:description" content="这次用 Codex 辅助完成 iPhone 17 Pro Max 概念机的建模，对我来说不是简单地“让 AI 帮我做一个模型”那么轻松。更准确地说，它像是一次把自己的建模思路重新梳理清楚的过程：我需要先知道自己想要什么，再把需求拆成能被理解、能被执行、能被检查的小步骤。最后模型能做出来，靠的不只是 Codex 的提示，更靠我自己不断判断、修改和验证。  一开始最重要的是把目标说清楚刚开始建模的时候">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/WFCrush/GitHub-PicBed@main/2026/06/codex-iphone-modeling/back-render.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/WFCrush/GitHub-PicBed@main/2026/06/codex-iphone-modeling/perspective-line.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/WFCrush/GitHub-PicBed@main/2026/06/codex-iphone-modeling/back-line.jpg">
+<meta property="article:published_time" content="2026-06-07T20:00:00.000Z">
+<meta property="article:modified_time" content="2026-06-07T11:02:58.000Z">
+<meta property="article:author" content="晚风">
+<meta property="article:tag" content="Codex">
+<meta property="article:tag" content="SolidWorks">
+<meta property="article:tag" content="三维建模">
+<meta property="article:tag" content="iPhone概念机">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/WFCrush/GitHub-PicBed@main/2026/06/codex-iphone-modeling/back-render.jpg">
+<meta name="twitter:creator" content="@WFCrush">
+<meta name="twitter:site" content="WFCrush">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+     <link rel="preconnect" href="https://fonts.googleapis.com"> <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap"> <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap"> <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap"></noscript> 
+  
+  <title>用 Codex 辅助完成 iPhone 概念机建模的一点心得 - 晚风の技术笔记</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+
+
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2.7.0/hint.min.css">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css">
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css">
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/aurora-tokens.css">
+<link rel="stylesheet" href="/css/blog-custom.css">
+<link rel="stylesheet" href="/css/home-premium.css">
+<link rel="stylesheet" href="/css/aurora-pages.css">
+<link rel="stylesheet" href="/css/post-reading-plus.css">
+<link rel="stylesheet" href="/css/public-skill-chat.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"wfcrush.github.io","root":"/","version":"1.9.9","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#165DFF","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"right","headingSelector":"h2,h3,h4,h5,h6","collapseDepth":2},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://open-kounter.mintimate.cn","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script src="/js/utils.js"></script>
+  <script src="/js/color-schema.js"></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"><meta name="twitter:title" content="用 Codex 辅助完成 iPhone 概念机建模的一点心得 - 晚风の技术笔记">
+<meta name="twitter:description" content="这次用 Codex 辅助完成 iPhone 17 Pro Max 概念机的建模，对我来说不是简单地“让 AI 帮我做一个模型”那么轻松。更准确地说，它像是一次把自己的建模思路重新梳理清楚的过程：我需要先知道自己想要什么，再把需求拆成能被理解、能被执行、能被检查的小步骤。最后模型能做出来，靠的不只是 Codex...">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+<meta property="og:image:secure_url" content="https://cdn.jsdelivr.net/gh/WFCrush/GitHub-PicBed@main/2026/06/codex-iphone-modeling/back-render.jpg">
+<meta property="og:image:alt" content="用 Codex 辅助完成 iPhone 概念机建模的一点心得 - 晚风の技术笔记">
+<meta name="twitter:image:alt" content="用 Codex 辅助完成 iPhone 概念机建模的一点心得 - 晚风の技术笔记">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://wfcrush.github.io/#person","name":"晚风","url":"https://wfcrush.github.io/"},{"@type":"WebSite","@id":"https://wfcrush.github.io/#website","url":"https://wfcrush.github.io/","name":"晚风の技术笔记","description":"人无法同时获得青春和对青春的感受","inLanguage":"zh-CN","publisher":{"@id":"https://wfcrush.github.io/#person"}},{"@type":"WebPage","@id":"https://wfcrush.github.io/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E7%94%A8-Codex-%E8%BE%85%E5%8A%A9%E5%AE%8C%E6%88%90-iPhone-%E6%A6%82%E5%BF%B5%E6%9C%BA%E5%BB%BA%E6%A8%A1%E7%9A%84%E4%B8%80%E7%82%B9%E5%BF%83%E5%BE%97/#webpage","url":"https://wfcrush.github.io/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E7%94%A8-Codex-%E8%BE%85%E5%8A%A9%E5%AE%8C%E6%88%90-iPhone-%E6%A6%82%E5%BF%B5%E6%9C%BA%E5%BB%BA%E6%A8%A1%E7%9A%84%E4%B8%80%E7%82%B9%E5%BF%83%E5%BE%97/","name":"用 Codex 辅助完成 iPhone 概念机建模的一点心得 - 晚风の技术笔记","description":"这次用 Codex 辅助完成 iPhone 17 Pro Max 概念机的建模，对我来说不是简单地“让 AI 帮我做一个模型”那么轻松。更准确地说，它像是一次把自己的建模思路重新梳理清楚的过程：我需要先知道自己想要什么，再把需求拆成能被理解、能被执行、能被检查的小步骤。最后模型能做出来，靠的不只是 Codex...","isPartOf":{"@id":"https://wfcrush.github.io/#website"},"inLanguage":"zh-CN","primaryImageOfPage":{"@type":"ImageObject","url":"https://cdn.jsdelivr.net/gh/WFCrush/GitHub-PicBed@main/2026/06/codex-iphone-modeling/back-render.jpg"}},{"@type":"BlogPosting","@id":"https://wfcrush.github.io/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E7%94%A8-Codex-%E8%BE%85%E5%8A%A9%E5%AE%8C%E6%88%90-iPhone-%E6%A6%82%E5%BF%B5%E6%9C%BA%E5%BB%BA%E6%A8%A1%E7%9A%84%E4%B8%80%E7%82%B9%E5%BF%83%E5%BE%97/#article","mainEntityOfPage":{"@id":"https://wfcrush.github.io/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E7%94%A8-Codex-%E8%BE%85%E5%8A%A9%E5%AE%8C%E6%88%90-iPhone-%E6%A6%82%E5%BF%B5%E6%9C%BA%E5%BB%BA%E6%A8%A1%E7%9A%84%E4%B8%80%E7%82%B9%E5%BF%83%E5%BE%97/#webpage"},"isPartOf":{"@id":"https://wfcrush.github.io/#website"},"headline":"用 Codex 辅助完成 iPhone 概念机建模的一点心得","name":"用 Codex 辅助完成 iPhone 概念机建模的一点心得","description":"这次用 Codex 辅助完成 iPhone 17 Pro Max 概念机的建模，对我来说不是简单地“让 AI 帮我做一个模型”那么轻松。更准确地说，它像是一次把自己的建模思路重新梳理清楚的过程：我需要先知道自己想要什么，再把需求拆成能被理解、能被执行、能被检查的小步骤。最后模型能做出来，靠的不只是 Codex...","url":"https://wfcrush.github.io/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E7%94%A8-Codex-%E8%BE%85%E5%8A%A9%E5%AE%8C%E6%88%90-iPhone-%E6%A6%82%E5%BF%B5%E6%9C%BA%E5%BB%BA%E6%A8%A1%E7%9A%84%E4%B8%80%E7%82%B9%E5%BF%83%E5%BE%97/","inLanguage":"zh-CN","author":{"@id":"https://wfcrush.github.io/#person"},"publisher":{"@id":"https://wfcrush.github.io/#person"},"datePublished":"2026-06-07T20:00:00.000Z","dateModified":"2026-06-07T11:02:58.000Z","image":["https://cdn.jsdelivr.net/gh/WFCrush/GitHub-PicBed@main/2026/06/codex-iphone-modeling/back-render.jpg"],"keywords":"Codex, SolidWorks, 三维建模, iPhone概念机","articleSection":["学习笔记"]}]}</script>
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 60vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>晚风の技术笔记</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content (desktop) -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>文章</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/projects/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>项目</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>更多</span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/tags/" target="_self">
+                    
+                    <span>标签</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/mingli/" target="_self">
+                    
+                    <span>命盘解读</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/skill-chat/" target="_self">
+                    
+                    <span>对话分析</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="http://127.0.0.1:5050/" target="_blank" rel="external nofollow noopener noreferrer">
+                    
+                    <span>博客后台</span>
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile grid menu overlay -->
+<div id="mobile-grid-menu" class="d-lg-none">
+  <div class="mobile-grid-menu-inner">
+    <div class="container">
+      <div class="row">
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-home-fill"></i>
+                  <span>首页</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/archives/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-archive-fill"></i>
+                  <span>文章</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/categories/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-category-fill"></i>
+                  <span>分类</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/projects/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-tags-fill"></i>
+                  <span>项目</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/about/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-user-fill"></i>
+                  <span>关于</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            
+            <div class="col-12 mobile-grid-group-header">
+              <i class="iconfont icon-tags-fill"></i>
+              <span>更多</span>
+            </div>
+            
+              
+              
+              
+              <div class="col-4 mobile-grid-cell">
+                <a href="/tags/" target="_self">
+                  <div class="mobile-grid-item">
+                    <i class="iconfont icon-link-fill"></i>
+                    <span>标签</span>
+                  </div>
+                </a>
+              </div>
+            
+              
+              
+              
+              <div class="col-4 mobile-grid-cell">
+                <a href="/mingli/" target="_self">
+                  <div class="mobile-grid-item">
+                    <i class="iconfont icon-link-fill"></i>
+                    <span>命盘解读</span>
+                  </div>
+                </a>
+              </div>
+            
+              
+              
+              
+              <div class="col-4 mobile-grid-cell">
+                <a href="/skill-chat/" target="_self">
+                  <div class="mobile-grid-item">
+                    <i class="iconfont icon-link-fill"></i>
+                    <span>对话分析</span>
+                  </div>
+                </a>
+              </div>
+            
+              
+              
+              
+              <div class="col-4 mobile-grid-cell">
+                <a href="http://127.0.0.1:5050/" target="_blank" rel="external nofollow noopener noreferrer">
+                  <div class="mobile-grid-item">
+                    <i class="iconfont icon-link-fill"></i>
+                    <span>博客后台</span>
+                  </div>
+                </a>
+              </div>
+            
+          
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-search-btn">
+            <a href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-search"></i>
+                <span>搜索</span>
+              </div>
+            </a>
+          </div>
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-color-toggle-btn" data-label-light="开灯" data-label-dark="关灯">
+            <a href="javascript:;" aria-label="Color Toggle">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-dark" id="mobile-color-toggle-icon"></i>
+                <span id="mobile-color-toggle-label">关灯</span>
+              </div>
+            </a>
+          </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+
+<div id="banner" class="banner" parallax="true" style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="用 Codex 辅助完成 iPhone 概念机建模的一点心得"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        晚风
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-06-08 04:00" pubdate>
+          2026-06-08 04:00
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          3.3k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          14 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">用 Codex 辅助完成 iPhone 概念机建模的一点心得</h1>
+            
+              <p id="updated-time" class="note note-info" style>
+                
+                  
+                    本文最后更新于 2026-06-07 19:02
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <p>这次用 Codex 辅助完成 iPhone 17 Pro Max 概念机的建模，对我来说不是简单地“让 AI 帮我做一个模型”那么轻松。更准确地说，它像是一次把自己的建模思路重新梳理清楚的过程：我需要先知道自己想要什么，再把需求拆成能被理解、能被执行、能被检查的小步骤。最后模型能做出来，靠的不只是 Codex 的提示，更靠我自己不断判断、修改和验证。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/WFCrush/GitHub-PicBed@main/2026/06/codex-iphone-modeling/back-render.jpg" srcset="/img/loading.gif" lazyload alt="iPhone 17 Pro Max 概念机背面渲染" loading="lazy" decoding="async"></p>
+<h2 id="一开始最重要的是把目标说清楚"><a href="#一开始最重要的是把目标说清楚" class="headerlink" title="一开始最重要的是把目标说清楚"></a>一开始最重要的是把目标说清楚</h2><p>刚开始建模的时候，我其实很容易陷入一个误区：以为只要告诉 Codex“帮我做一个 iPhone 概念机模型”，它就能自动给出完整方案。但实际操作下来会发现，这种说法太笼统了。手机外观看起来简单，真正拆开之后却有很多细节：机身比例、圆角半径、边框厚度、摄像头模组位置、镜头凸起高度、背板分割线、按键位置、材质质感，这些都需要明确。</p>
+<p>所以我后来改变了提问方式，不再一次性要求它“完成全部”，而是先把模型拆成几个部分：<strong>机身主体、背面玻璃区域、摄像头模组、镜头圆环、按键与接口、装饰线和渲染材质</strong>。这样做以后，Codex 给出的建议明显更有用。它不会再只停留在概念描述，而是能帮我把建模顺序排出来，比如先做基础长方体，再倒圆角，再添加摄像头岛，最后处理细节和外观。</p>
+<p>这给我的第一个体会就是：<strong>AI 不是替我思考目标的人，而是帮我把已经想清楚的目标变成步骤的人。</strong> 如果我自己都说不清模型要长什么样，Codex 也只能给出很泛的回答；但只要我能把需求讲具体，它就能变成一个很好的建模助手。</p>
+<h2 id="建模过程不能只看“像不像”，还要看结构是否合理"><a href="#建模过程不能只看“像不像”，还要看结构是否合理" class="headerlink" title="建模过程不能只看“像不像”，还要看结构是否合理"></a>建模过程不能只看“像不像”，还要看结构是否合理</h2><p>手机模型最容易做成“看上去差不多”，但细看就会发现比例不舒服。比如摄像头模组如果太大，背面会显得拥挤；圆角如果太小，整体就不像现代手机；机身厚度如果没有控制好，侧面看起来就会笨重。Codex 在这个阶段给我的帮助，主要不是直接决定尺寸，而是提醒我用参数化思路去做。</p>
+<p>我在 SolidWorks 里建模时，尽量把关键尺寸保留下来，而不是随便拖动。比如机身长宽厚、圆角半径、摄像头岛边距、镜头直径这些，都可以先设成一个比较容易修改的数值。这样后面发现比例不对时，不用全部推倒重来，只要回到草图或特征里调整参数就行。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/WFCrush/GitHub-PicBed@main/2026/06/codex-iphone-modeling/perspective-line.jpg" srcset="/img/loading.gif" lazyload alt="iPhone 17 Pro Max 概念机透视线稿" loading="lazy" decoding="async"></p>
+<p>这一点我以前其实没有特别重视，总觉得能画出来就行。但这次做概念机模型时，我明显感觉到：<strong>参数化不是为了显得专业，而是为了给后期修改留余地。</strong> 尤其是这种外观类模型，第一版很少一次就好看，基本都要反复调比例。前期如果建得太随意，后面每改一次都会很痛苦。</p>
+<h2 id="Codex-更适合当“建模思路检查员”"><a href="#Codex-更适合当“建模思路检查员”" class="headerlink" title="Codex 更适合当“建模思路检查员”"></a>Codex 更适合当“建模思路检查员”</h2><p>在实际建模中，Codex 并不能直接替我在 SolidWorks 里点按钮，它更像一个在旁边帮我检查逻辑的人。我会把当前遇到的问题告诉它，比如“摄像头模组和背板融合得不自然”“镜头凸起层次太单薄”“背面线条不知道怎么处理”，然后它会给出几种可能的改法。</p>
+<p>有些建议我会直接采用，比如把摄像头模组分成底座、镜头圆环、镜片三个层次，而不是只做几个圆柱体贴在背面。这样模型的空间感会更强，看起来也更像真实产品。还有一些建议我不会完全照搬，因为概念机本身要有一点自己的想法，不能完全做成现有手机的复制品。</p>
+<blockquote>
+<p>我觉得这次最大的变化是：以前遇到建模卡住，我会盯着软件界面发呆；现在我会先把问题用文字说出来。很多时候，问题一旦被说清楚，其实就已经解决了一半。</p>
+</blockquote>
+<p>这种“把问题写出来”的过程很有用。比如我觉得背面太空，但不知道加什么细节，于是我会问 Codex 能不能从工业设计角度给一些建议。它会提醒我可以增加装饰分割线、材质对比、镜头区域层次、倒角高光等。我再结合自己的审美去选择，不会完全依赖它。</p>
+<h2 id="图片和线稿让我更容易复盘模型"><a href="#图片和线稿让我更容易复盘模型" class="headerlink" title="图片和线稿让我更容易复盘模型"></a>图片和线稿让我更容易复盘模型</h2><p>这次保存了几张不同角度的图片，包括背面渲染图、背面线稿和透视线稿。渲染图适合看整体质感，线稿则更适合检查结构和轮廓。尤其是线稿图，能把模型的边界、凸起、倒角和分割线表现得更清楚，也方便发现哪里过于复杂或者哪里太空。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/WFCrush/GitHub-PicBed@main/2026/06/codex-iphone-modeling/back-line.jpg" srcset="/img/loading.gif" lazyload alt="iPhone 17 Pro Max 概念机背面线稿" loading="lazy" decoding="async"></p>
+<p>从背面线稿看，摄像头区域是整个模型最吸引注意力的地方。如果这个区域处理不好，整个手机就会显得廉价。我的做法是尽量让镜头、闪光灯和模组底座之间形成层次，而不是简单堆在同一个平面上。虽然最终效果还不是特别成熟，但比一开始只做平板加圆柱的方案要好很多。</p>
+<p>透视线稿则让我看到另一个问题：侧边和背面的衔接非常重要。手机不是一块简单的长方体，它的边缘倒角会影响握持感，也会影响光影效果。<strong>一个小小的圆角半径，可能就会决定模型看起来是“精致”还是“生硬”。</strong> 这也是我这次建模里比较深的感受。</p>
+<h2 id="AI-给建议，人还是要做取舍"><a href="#AI-给建议，人还是要做取舍" class="headerlink" title="AI 给建议，人还是要做取舍"></a>AI 给建议，人还是要做取舍</h2><p>用 Codex 的过程中，我也发现不能把它的建议都当成标准答案。有时候它会给出很多听起来合理的方案，但放到具体模型里不一定合适。比如它可能建议增加更多细节，让模型更有科技感，但细节太多以后，手机背面反而会变乱。概念设计不是把元素堆满，而是要让重点清楚。</p>
+<p>所以我后来给自己定了一个原则：每次只改一个主要问题。比如这一轮只调整摄像头比例，下一轮只处理背面线条，再下一轮只看材质和渲染。这样模型变化比较可控，也更容易判断哪一步是真的有效。如果一次性改太多地方，最后反而不知道是哪个调整让效果变好了，哪个调整又带来了新问题。</p>
+<p>这也让我意识到，AI 辅助建模最有价值的地方，不是让人少动手，而是让人少走一些没必要的弯路。它可以帮我列步骤、提醒细节、提供思路，但最终的审美判断、尺寸选择和结构取舍还是要由我自己完成。<strong>如果完全不判断，只是机械照做，最后得到的模型可能很完整，但不一定有自己的想法。</strong></p>
+<h2 id="从这次建模里学到的几个方法"><a href="#从这次建模里学到的几个方法" class="headerlink" title="从这次建模里学到的几个方法"></a>从这次建模里学到的几个方法</h2><p>这次完成模型后，我整理了几个以后还能继续用的方法。</p>
+<p>第一，建模前先写一个简单大纲。哪怕只是几行字，也比直接打开软件乱画要好。比如先写清楚“主体是什么形状、主要特征在哪里、哪些地方需要重点表现”。这样后面问 Codex 时也更方便。</p>
+<p>第二，复杂模型要拆成模块。手机看起来是一个整体，但实际上可以拆成很多小结构。每个模块单独做，最后再组合和调整，比一开始就追求整体完成更稳。</p>
+<p>第三，关键尺寸尽量参数化。特别是圆角、厚度、间距、直径这些容易反复修改的地方，不要随便定死。<strong>能改，才有继续优化的空间。</strong></p>
+<p>第四，多保存不同视角的图片。建模软件里旋转模型时，很多问题不明显；导出图片以后，反而更容易像看作品一样检查整体效果。尤其是渲染图和线稿图结合起来看，一个看质感，一个看结构。</p>
+<p>第五，不要怕和 AI 来回沟通。第一次提示不准确很正常，关键是根据结果继续补充条件。比如“不要太复杂”“更像真实工业产品”“摄像头区域要突出但不要拥挤”，这些描述越具体，得到的建议就越接近我的需求。</p>
+<h2 id="这次模型还可以继续改进的地方"><a href="#这次模型还可以继续改进的地方" class="headerlink" title="这次模型还可以继续改进的地方"></a>这次模型还可以继续改进的地方</h2><p>虽然这次模型已经完成了，但如果后面继续优化，我觉得还有几个方向可以改。</p>
+<p>一个是材质表现还可以更细。比如背板玻璃、金属边框、镜头玻璃和黑色装饰件之间，可以做出更明显的反射差异。现在整体已经有概念图的感觉，但真实产品那种细腻质感还可以继续加强。</p>
+<p>另一个是细节尺寸还可以更严谨。概念模型可以自由发挥，但如果想让它更接近产品设计，就要考虑更多实际因素，比如镜头凸起是否过高、按键位置是否符合握持习惯、接口和扬声器开孔是否合理等。现在的重点更多是外观表达，工程合理性还可以再往前推进一步。</p>
+<p>还有就是可以尝试做一个简单展示板，把渲染图、线稿、局部放大图和设计说明放在一起。这样不仅模型本身更完整，也更方便发博客或放进作品集中。<strong>建模不是只交一个文件，最后的展示方式也会影响别人对作品的第一印象。</strong></p>
+<h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><p>这次用 Codex 完成 iPhone 17 Pro Max 概念机建模，我最大的收获不是“AI 真厉害”，而是发现自己需要更清楚地表达设计目标。以前我可能更多是在软件里试错，现在会先用文字把思路整理出来，再让 Codex 帮我补充步骤和检查问题。</p>
+<p>对我来说，Codex 像一个不会嫌我问题多的搭子：我可以把卡住的地方丢给它，让它从建模顺序、结构逻辑、细节处理几个角度帮我想办法。但最后要不要采用、怎么采用，还得看我自己的判断。</p>
+<p>这次模型还有很多可以继续打磨的地方，不过能从一个想法慢慢做成一个完整的 SolidWorks 文件，再导出图片复盘，我已经觉得挺有成就感了。后面如果继续做类似的产品概念建模，我应该还会沿用这套方法：<strong>先拆目标，再建主体，最后反复检查比例和细节。</strong> 这样一步一步来，模型会更稳，自己也会更有底。</p>
+
+                
+              </div>
+            
+            <hr>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="category-chain-item">学习笔记</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Codex/" class="print-no-link">#Codex</a>
+      
+        <a href="/tags/SolidWorks/" class="print-no-link">#SolidWorks</a>
+      
+        <a href="/tags/%E4%B8%89%E7%BB%B4%E5%BB%BA%E6%A8%A1/" class="print-no-link">#三维建模</a>
+      
+        <a href="/tags/iPhone%E6%A6%82%E5%BF%B5%E6%9C%BA/" class="print-no-link">#iPhone概念机</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>用 Codex 辅助完成 iPhone 概念机建模的一点心得</div>
+      <div>https://wfcrush.github.io/学习笔记/用-Codex-辅助完成-iPhone-概念机建模的一点心得/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>晚风</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2026年6月8日</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>更新于</div>
+          <div>2026年6月7日</div>
+        </div>
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noopener noreferrer">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noopener noreferrer">
+                  <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                    <i class="iconfont icon-cc-nc"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noopener noreferrer">
+                  <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                    <i class="iconfont icon-cc-sa"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/%E5%B7%A5%E5%85%B7%E6%8A%98%E8%85%BE/%E8%AE%B0%E4%B8%80%E6%AC%A1-Codex-Desktop-%E5%9C%A8-Windows-%E4%B8%8A%E7%9A%84-Fast-Mode-%E4%BF%AE%E5%A4%8D/" title="记一次 Codex Desktop 在 Windows 上的 Fast Mode 修复">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">记一次 Codex Desktop 在 Windows 上的 Fast Mode 修复</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/gpt-%E7%A0%B4%E7%94%B2/double-SKILL/" title="double SKILL">
+                        <span class="hidden-mobile">double SKILL</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+    <div id="giscus" class="giscus"></div>
+    <script type="text/javascript">
+      Fluid.utils.loadComments('#giscus', function() {
+        var options = {"repo":"WFCrush/boke","repo-id":"R_kgDOSnWhfA","category":"General","category-id":"DIC_kwDOSnWhfM4C91BD","theme-light":"light","theme-dark":"dark","mapping":"pathname","reactions-enabled":1,"emit-metadata":0,"input-position":"top","lang":"zh-CN"};
+        var attributes = {};
+        for (let option in options) {
+          if (!option.startsWith('theme-')) {
+            var key = option.startsWith('data-') ? option : 'data-' + option;
+            attributes[key] = options[option];
+          }
+        }
+        var light = 'light';
+        var dark = 'dark';
+        window.GiscusThemeLight = light;
+        window.GiscusThemeDark = dark;
+        attributes['data-theme'] = document.documentElement.getAttribute('data-user-color-scheme') === 'dark' ? dark : light;
+        for (let attribute in attributes) {
+          var value = attributes[attribute];
+          if (value === undefined || value === null || value === '') {
+            delete attributes[attribute];
+          }
+        }
+        var s = document.createElement('script');
+        s.setAttribute('src', 'https://giscus.app/client.js');
+        s.setAttribute('crossorigin', 'anonymous');
+        for (let attribute in attributes) {
+          s.setAttribute(attribute, attributes[attribute]);
+        }
+        var ss = document.getElementsByTagName('script');
+        var e = ss.length > 0 ? ss[ss.length - 1] : document.head || document.documentElement;
+        e.parentNode.insertBefore(s, e.nextSibling);
+      });
+    </script>
+    <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+  <!-- Custom -->
+  <div class="col-lg-7 mx-auto nopadding-x-md">
+    <div class="container custom post-custom mx-auto">
+      <section class="boke-author-card" aria-label="作者简介"><picture data-optimized="true"><source type="image/webp" srcset="/opt-images/avatar-800w.webp 800w, /opt-images/avatar-1280w.webp 1280w, /opt-images/avatar-1920w.webp 1920w" sizes="(max-width: 1279px) 800px, (min-width: 1280px) and (max-width: 1919px) 1280px, (min-width: 1920px) 1920px, 1920px"><img src="/opt-images/avatar-optimized.png" srcset="/img/loading.gif" lazyload alt="ASHUWEI 头像" width="2730" height="1535" loading="lazy" decoding="async"></picture><div><h2>关于 ASHUWEI</h2><p>计算机专业学习者，持续记录编程学习、项目实践和技术成长中的真实踩坑经验。</p><p><a href="https://github.com/WFCrush" target="_blank" rel="noopener">GitHub</a><span aria-hidden="true"> · </span><a href="/about/">关于我</a></p></div></section><section class="boke-subscribe-card" aria-label="邮件订阅"><h2>订阅更新</h2><p>想收到新文章提醒，可以把 Mailchimp 表单地址填到 source/js/site-enhance.js 的 subscribeAction。</p><form class="boke-subscribe-form" action="#" method="post" target="_blank"><input type="email" name="EMAIL" placeholder="你的邮箱" aria-label="邮箱地址" required><button type="submit">订阅</button></form></section>
+    </div>
+  </div>
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="external nofollow noopener noreferrer"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css">
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"></script>
+<script src="/js/events.js"></script>
+<script src="/js/plugins.js"></script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js"></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script src="/js/img-lazyload.js"></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/tocbot@4.20.1/dist/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    function isExpandAllEnabled() {
+      return CONFIG.toc && CONFIG.toc.expand_all === true;
+    }
+    function expandAllToc() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .tocbot-is-collapsed').removeClass('tocbot-is-collapsed');
+    }
+    function updateTocToggle($li, $childList) {
+      var $toggle = $li.children('.toc-toggle');
+      if ($toggle.length === 0) { return; }
+      var collapsed = $childList.hasClass('tocbot-is-collapsed');
+      $toggle
+        .toggleClass('toc-toggle-collapsed', collapsed)
+        .toggleClass('toc-toggle-expanded', !collapsed);
+    }
+    function bindTocToggle() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .toc-list-item').each(function() {
+        var $li = jQuery(this);
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) {
+          if ($li.children('.toc-toggle').length === 0) {
+            $li.prepend('<span class="toc-toggle toc-toggle-placeholder" aria-hidden="true">›</span>');
+          }
+          return;
+        }
+
+        if ($li.children('.toc-toggle').length === 0) {
+          $li.prepend('<span class="toc-toggle toc-toggle-expanded" aria-hidden="true">›</span>');
+        }
+        updateTocToggle($li, $childList);
+      });
+      jQuery('#toc-body').off('click.tocToggle').on('click.tocToggle', '.toc-toggle', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var $li = jQuery(this).parent('.toc-list-item');
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) { return; }
+        $childList.toggleClass('tocbot-is-collapsed');
+        updateTocToggle($li, $childList);
+      });
+      if (!window.__tocToggleObserver) {
+        window.__tocToggleObserver = new MutationObserver(function(mutations) {
+          mutations.forEach(function(mutation) {
+            if (mutation.type !== 'attributes' || mutation.attributeName !== 'class') { return; }
+            var $list = jQuery(mutation.target);
+            var $li = $list.parent('.toc-list-item');
+            if ($li.length === 0) { return; }
+            updateTocToggle($li, $list);
+          });
+        });
+        jQuery('#toc-body ol').each(function() {
+          window.__tocToggleObserver.observe(this, { attributes: true });
+        });
+      }
+    }
+    var tocConfig = Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc);
+    if (isExpandAllEnabled()) {
+      tocConfig.collapseDepth = 6;
+    }
+    window.tocbot.init(tocConfig);
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+    expandAllToc();
+    bindTocToggle();
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+        expandAllToc();
+        bindTocToggle();
+      }
+    });
+  });
+</script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/anchor-js@5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+
+  <script src="/js/local-search.js"></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+<script src="/js/contact-widget.js"></script>
+<script src="/js/site-enhance.js"></script>
+<script src="/js/home-premium.js"></script>
+<script src="/js/aurora-ui.js"></script>
+<script src="/js/aurora-pages.js"></script>
+<script src="/js/post-reading-plus.js"></script>
+<script src="/js/public-skill-chat-config.js"></script>
+<script src="/js/public-skill-chat.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script src="/js/boot.js"></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

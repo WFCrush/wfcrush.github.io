@@ -1,0 +1,162 @@
+/* ============================================================
+   Aurora Design Tokens
+   ------------------------------------------------------------
+   单一可信源。前台与后台都引用这一份。
+   引用顺序：第一个加载，后续 css 用 var(--au-*)。
+   ============================================================ */
+
+:root {
+  /* 背景层 - 使用壁纸背景 */
+  --au-bg:        transparent;
+  --au-bg-soft:   rgba(239, 236, 229, 0.85);
+  --au-panel:     rgba(255, 255, 255, 0.85);
+
+  /* 文字层 */
+  --au-ink:       #14181d;
+  --au-ink-soft:  #4a525c;
+  --au-muted:     #8a909a;
+
+  /* 描边 */
+  --au-line:      rgba(20, 24, 29, 0.12);
+  --au-line-strong: rgba(20, 24, 29, 0.2);
+
+  /* 强调（黑色实心按钮 / 焦点） */
+  --au-accent:     #1c1f26;
+  --au-accent-ink: #f7f5f0;
+  --au-accent-soft: rgba(28, 31, 38, 0.08);
+
+  /* 球面装饰渐变 */
+  --au-orb:
+    radial-gradient(80% 80% at 30% 25%, #ffffff, rgba(255, 255, 255, 0.6) 30%, transparent 60%),
+    conic-gradient(from 200deg at 60% 50%, #d7d2c8, #f7f5f0, #1c1f26, #d7d2c8);
+
+  /* 圆角 */
+  --au-r-sm:   12px;
+  --au-r-md:   18px;
+  --au-r-lg:   28px;
+  --au-r-xl:   40px;
+  --au-r-pill: 999px;
+
+  /* 阴影 */
+  --au-shadow-1: 0 1px 0 rgba(20, 24, 29, 0.04), 0 8px 24px rgba(20, 24, 29, 0.06);
+  --au-shadow-2: 0 12px 40px rgba(20, 24, 29, 0.08);
+  --au-shadow-3: 0 30px 80px rgba(20, 24, 29, 0.18);
+
+  /* 字体 */
+  --au-font-sans: "Inter", "Noto Sans SC", -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", system-ui, sans-serif;
+  --au-font-mono: "JetBrains Mono", ui-monospace, "SF Mono", "Cascadia Mono", Menlo, Consolas, monospace;
+
+  /* 字号 */
+  --au-h1:    clamp(40px, 6vw, 72px);
+  --au-h2:    clamp(24px, 3vw, 32px);
+  --au-h3:    clamp(18px, 2vw, 22px);
+  --au-body:  16px;
+  --au-small: 14px;
+
+  /* 布局 */
+  --au-container: 1200px;
+  --au-gutter:    clamp(16px, 3vw, 32px);
+
+  /* 断点（注释用，不要用 var()） */
+  /* --au-bp-mobile: 640px;
+     --au-bp-tablet: 1024px;
+     --au-bp-desk:   1440px; */
+
+  /* 过渡 */
+  --au-ease:     cubic-bezier(.2, .7, .2, 1);
+  --au-dur-1:    .2s;
+  --au-dur-2:    .4s;
+}
+
+/* 暗色：跟 Fluid 的 data-user-color-scheme 联动 */
+html[data-user-color-scheme="dark"] {
+  --au-bg:        transparent;
+  --au-bg-soft:   rgba(20, 24, 29, 0.85);
+  --au-panel:     rgba(20, 24, 29, 0.85);
+
+  --au-ink:       #f0eee8;
+  --au-ink-soft:  rgba(214, 220, 230, 0.78);
+  --au-muted:     #6e7480;
+
+  --au-line:        rgba(255, 255, 255, 0.12);
+  --au-line-strong: rgba(255, 255, 255, 0.2);
+
+  --au-accent:     #f0eee8;
+  --au-accent-ink: #14181d;
+  --au-accent-soft: rgba(240, 238, 232, 0.08);
+
+  --au-orb:
+    radial-gradient(80% 80% at 30% 25%, rgba(255, 255, 255, 0.18), transparent 60%),
+    conic-gradient(from 200deg at 60% 50%, #2a2f3a, #1c1f26, #f0eee8, #2a2f3a);
+
+  --au-shadow-1: 0 1px 0 rgba(0, 0, 0, 0.4), 0 8px 24px rgba(0, 0, 0, 0.4);
+  --au-shadow-2: 0 12px 40px rgba(0, 0, 0, 0.5);
+  --au-shadow-3: 0 30px 80px rgba(0, 0, 0, 0.6);
+}
+
+/* 系统级跟随（仅当用户没手动选过且 default 是 auto 时才生效） */
+@media (prefers-color-scheme: dark) {
+  html:not([data-user-color-scheme]) {
+    --au-bg:        transparent;
+    --au-bg-soft:   rgba(20, 24, 29, 0.85);
+    --au-panel:     rgba(20, 24, 29, 0.85);
+    --au-ink:       #f0eee8;
+    --au-ink-soft:  rgba(214, 220, 230, 0.78);
+    --au-muted:     #6e7480;
+    --au-line:        rgba(255, 255, 255, 0.12);
+    --au-line-strong: rgba(255, 255, 255, 0.2);
+    --au-accent:     #f0eee8;
+    --au-accent-ink: #14181d;
+    --au-accent-soft: rgba(240, 238, 232, 0.08);
+    --au-orb:
+      radial-gradient(80% 80% at 30% 25%, rgba(255, 255, 255, 0.18), transparent 60%),
+      conic-gradient(from 200deg at 60% 50%, #2a2f3a, #1c1f26, #f0eee8, #2a2f3a);
+    --au-shadow-1: 0 1px 0 rgba(0, 0, 0, 0.4), 0 8px 24px rgba(0, 0, 0, 0.4);
+    --au-shadow-2: 0 12px 40px rgba(0, 0, 0, 0.5);
+    --au-shadow-3: 0 30px 80px rgba(0, 0, 0, 0.6);
+  }
+}
+
+/* 全站基础壁纸背景 - 无论是否有 aurora-ui class 都生效 */
+body {
+  background: url('/img/bg-wallpaper.png') center center / cover fixed #14181d;
+}
+
+/* 全站基础（最小化，不要破坏 Fluid 主题） */
+body.aurora-ui {
+  color: var(--au-ink);
+  font-family: var(--au-font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* IntersectionObserver 淡入 */
+body.aurora-ui [data-au-section] {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity var(--au-dur-2) var(--au-ease), transform var(--au-dur-2) var(--au-ease);
+}
+body.aurora-ui [data-au-section].is-in {
+  opacity: 1;
+  transform: none;
+}
+
+/* Toast */
+.au-toast {
+  position: fixed;
+  left: 50%;
+  bottom: 32px;
+  transform: translateX(-50%);
+  background: var(--au-accent);
+  color: var(--au-accent-ink);
+  padding: 12px 20px;
+  border-radius: var(--au-r-pill);
+  font-size: 14px;
+  z-index: 9999;
+  box-shadow: var(--au-shadow-2);
+  animation: au-toast-in .25s var(--au-ease);
+}
+@keyframes au-toast-in {
+  from { opacity: 0; transform: translate(-50%, 8px); }
+  to   { opacity: 1; transform: translate(-50%, 0); }
+}
